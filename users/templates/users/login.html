@@ -1,0 +1,30 @@
+{% extends 'tarefas/base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+{% block header %}
+<!-- Parte referente ao topo da página -->
+<h2 class="text-center">Entre com sua conta</h2>
+
+{% endblock header %}
+
+    <!-- Criação do formulário para login -->
+    <form action="{% url 'login' %}" method="POST" class="form text-center">
+        {% csrf_token %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-2">
+        {% bootstrap_form form %}
+            </div>
+        </div>
+
+        <!-- Informações que serão enviadas para a autenticação -->
+        <button class="btn btn-primary" name="submit">Entrar</button>
+        <input type="hidden" name="next" value="{% url 'tarefas:index' %}"/>
+    </form>
+
+{% endblock content %}
