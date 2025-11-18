@@ -1,0 +1,54 @@
+<!-- Criação do cabeçalho que sempre será apresentado em todas as páginas -->
+{% load bootstrap5 %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light align-items-center">
+
+        <a class="navbar-brand py-0 my-0 align-items-center" href="{% url 'tarefas:index' %}">To-Do List</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'tarefas:home' %}">Tarefas Pendentes</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'tarefas:completas' %}">Tarefas Completas</a>
+                </li>
+                <li class="nav-item active ms-auto d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        <span class="navbar-text me-2">
+                            Olá, {{user.username}}
+                        </span>
+                        <a class="nav-link py-0" href="{% url 'logout' %}">Sair</a>
+                    {% else %}
+                        <div class="d-flex p-0">
+                            <a class="nav-link me-2" href="{% url 'login' %}">Entrar</a>
+                            <a class="nav-link" href="{% url 'register' %}">Registrar</a>
+                        </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<body>
+    {% bootstrap_messages %}
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+
+{% block content %}{% endblock content %}
+{% bootstrap_javascript %}
+{% bootstrap_css %}
