@@ -1,0 +1,13 @@
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
+<h1 align="center"> Lista Afazeres </h1>
+O programa de lista de afazeres em desenvolvimento tem como objetivo oferecer uma aplicação web simples e eficiente para o gerenciamento de tarefas com prazos. Através de uma interface amigável, o usuário pode registrar, visualizar e acompanhar suas atividades diárias de forma organizada, mantendo o controle sobre o que precisa ser feito e os respectivos prazos de entrega.
+
+# Tecnologias Usadas
+``Python``  ``Django``  ``SQLite`` ``Bootstrap``
+
+<img src="https://th.bing.com/th/id/R.7494e83354e2662240d06630cc31f08d?rik=9tIRLZpYS9oTfQ&pid=ImgRaw&r=0" alt="Python" width=50> <img src="https://avatars.githubusercontent.com/u/27804?s=280&v=4" alt="Django" width=60> <img src="https://th.bing.com/th/id/R.f921b217045059f8638363991c43b8a1?rik=HrS%2f1nR86dMj4A&riu=http%3a%2f%2flogonoid.com%2fimages%2fsqlite-logo.png&ehk=VgCCU9HfsEpoVcsvNAFzjQXkdOKM6W6CNOo2BbYyIHA%3d&risl=&pid=ImgRaw&r=0" alt="sqlite" width=120> <img src="https://icons.veryicon.com/png/o/application/skills-section/bootstrap-2.png" width=70>
+
+# Uso e funcionamento
+<p>Já dentro do site, é necessário fazer um registro ou login, pois sem uma conta você não poderá organizar as suas tarefas.</p>
+<p>O processo é simples, o usuário irá acessar a aba "Tarefas Pendentes", e nessa página irá conter um botão para criação das tarefas, onde você irá fazer a nomeação da tarefa e irá determinar o prazo final (o prazo final não é um campo obrigatório a ser preenchido). Após a conclusão da tarefa, é necessário clicar na caixinha de conclusão (checkbox) dentro da tabela abaixo de "Situação", após a caixinha ficar marcada a tarefa será enviada e mantida na página "Tarefas Completas", e se for de sua vontade, é possível desmarcar a checkbox e voltar a tarefa à aba de tarefas pendentes.</p>
+<p>Falando sobre o funcionamento do código, é bem simples, após o login, cada usuário irá possuir as suas próprias tarefas. No banco de dados serão inseridas as informações referentes aos nomes e prazos de conclusão das tarefas, e se for da vontade do usuário, é possível editar a tarefa. Após a adição de uma tarefa, a tarefa recebe o status de "em andamento", e se após o prazo final a atividade ainda estiver dentro das atividades pendentes, irá apresentar um status de "atrasada". A tarefa recebe uma checkbox para verificação de conclusão, que toda vez que é marcada, recebe o horário atual para fazer uma comparação com o prazo final, e se foi entregue antes do prazo final, é exibido uma mensagem "concluído", se foi entregue após o prazo, é exibida uma mensagem escrito "entregue com  atraso".</p>
